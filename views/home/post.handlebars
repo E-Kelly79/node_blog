@@ -1,0 +1,107 @@
+<section class="main-sec">
+    <div class="container">
+        <div class="standard-post-format">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="post-item big-post about-profile">
+                        <h1 class="mb-0">{{post.title}}</h1>
+                        <p style="font-size: .8rem">Author: {{post.user.name}}<br>
+                            Date: {{formatDate date 'Do MMM YYYY'}}</p>
+                        <img src="/uploads/{{post.file}}" alt="post-img">
+                        <p>{{post.body}}</p>
+                    </div>
+                </div>
+                <div class="col-md-12 post-item big-post">
+                    <div class="page-header">
+                        <h1>Comments </h1>
+                    </div>
+                    {{#each post.comments}}
+                        <div class="comments-list" >
+                            <div class="media">
+                                <a class="media-left" href="#">
+                                    <!--<img src="http://lorempixel.com/40/40/people/1/">-->
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading user_name">{{user.name}}</h4>
+                                    {{body}}
+                                    <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            <form action="/admin/comments" role="form" method="post">
+                <div class="form-group">
+                    <textarea name="comment" class="form-control" rows="3" cols="90"></textarea>
+                    <input type="hidden" name="id" value="{{post.id}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Comment</button>
+            </form>
+        </div>
+
+
+        <aside>
+
+            <div class="category-sec">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#" class="active">Photography</a></li>
+                    <li><a href="#">At & Lifestyle</a></li>
+                    <li><a href="#">Health & Fitness</a></li>
+                    <li><a href="#">Landscapes</a></li>
+                    <li><a href="#">Travelling</a></li>
+                    <li><a href="#">Quotes</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Featured</a></li>
+                    <li><a href="#">Photography</a></li>
+                </ul>
+            </div>
+            <div class="most-read">
+                <h3>Most Read</h3>
+                <ul>
+                    <li>
+                        <figure style="background:url(./images/rsmall.jpg)no-repeat;"></figure>
+                        <div class="post-content">
+                            <h3><a href="#">Man Walking on the desert alone in sunset time.</a></h3>
+                            <h5>Nov 20, 2014 </h5>
+                            <span>By <a href="#">Admin</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <figure style="background:url(./images/rsmall2.jpg)no-repeat;"></figure>
+                        <div class="post-content">
+                            <h3><a href="#">Man Walking on the desert alone in sunset time.</a></h3>
+                            <h5>Nov 20, 2014 </h5>
+                            <span>By <a href="#">Admin</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <figure style="background:url(./images/rsmall3.jpg)no-repeat;"></figure>
+                        <div class="post-content">
+                            <h3><a href="#">Man Walking on the desert alone in sunset time.</a></h3>
+                            <h5>Nov 20, 2014 </h5>
+                            <span>By <a href="#">Admin</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <figure style="background:url(./images/rsmall4.jpg)no-repeat;"></figure>
+                        <div class="post-content">
+                            <h3><a href="#">Man Walking on the desert alone in sunset time.</a></h3>
+                            <h5>Nov 20, 2014 </h5>
+                            <span>By <a href="#">Admin</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- facebook like section -->
+            <div class="fb-sec">
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Femonmyplate%2F&tabs&width=330&height=214&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="100%" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            </div>
+
+            <!-- InstaWidget -->
+            <a href="https://instawidget.net/v/user/emonmyplate" id="link-f2817c83148136b9664b083d0c186732613e578614b3d2610cc8e3b0e864b122">@emonmyplate</a>
+            <script src="https://instawidget.net/js/instawidget.js?u=f2817c83148136b9664b083d0c186732613e578614b3d2610cc8e3b0e864b122&width=300px"></script>
+        </aside>
+    </div>
+</section>

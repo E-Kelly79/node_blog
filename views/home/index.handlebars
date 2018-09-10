@@ -1,0 +1,95 @@
+<hr class="hr-color">
+<section class="main-sec">
+    <div class="container">
+        <div class="standard-post-format">
+            <div class="row">
+                {{#each posts}}
+                    {{#if @last}}
+                        <div class="col-md-12">
+                            <!-- Big post section -->
+                            <h2 class="text-center mb-3" >Newest Post</h2>
+                            <div class="post-item big-post pt-0">
+                                <img src="/uploads/{{file}}"  alt="post-img">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">{{formatDate date 'Do MMM YYYY'}}</li>
+                                    <li class="breadcrumb-item"> By <a href="#" class="admin">Admin</a></li>
+                                    <li class="breadcrumb-item">In <a href="#" class="fashion">Fashion </a></li>
+                                    <li class="breadcrumb-item">(23) Comments</li>
+                                </ol>
+                                <a href="/post/{{id}}"><h2>{{title}}</h2></a>
+                                <h5>{{body}}</h5>
+                                <a href="/post/{{id}}" class="continue-read">Continue Reading</a>
+                                <!--<div class="share align-middle">-->
+                                <!--<span class="text">Share This</span>-->
+                                <!--<span class="fb"><i class="fa fa-facebook-official"></i></span>-->
+                                <!--<span class="instagram"><i class="fa fa-instagram"></i></span>-->
+                                <!--<span class="twitter"><i class="fa fa-twitter"></i></span>-->
+                                <!--<span class="pinterest"><i class="fa fa-pinterest"></i></span>-->
+                                <!--<span class="google"><i class="fa fa-google-plus"></i></span>-->
+                                <!--<span class="google"><i class="fa fa-commenting"></i></span>-->
+                                <!--</div>-->
+                            </div>
+                            <!-- End Big post section -->
+                        </div>
+                    {{/if}}
+                {{/each}}
+            </div>
+            <div class="row small-post-sec">
+                {{#each posts}}
+                    <div class="col-md-6 col-sm-6">
+                        <div class="post-item small-post">
+                            <img src="/uploads/{{file}}" class="img-thumbnail" alt="post-img">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">{{formatDate date 'Do MMM YYYY'}}</li>
+                                <li class="breadcrumb-item"> By <a href="#" class="">Admin</a></li>
+                            </ol>
+                            <h2><a href="/post/{{id}}">{{title}}</a></h2>
+                            <h5>
+                                {{body}}
+                            </h5>
+                            <a href="/post/{{id}}" class="continue-read">Continue Reading</a>
+                            <div class="share align-middle">
+                                <span class="fb"><i class="fa fa-facebook-official"></i></span>
+                                <span class="instagram"><i class="fa fa-instagram"></i></span>
+                                <span class="twitter"><i class="fa fa-twitter"></i></span>
+                                <span class="pinterest"><i class="fa fa-pinterest"></i></span>
+                                <span class="google"><i class="fa fa-google-plus"></i></span>
+                                <span class="google"><i class="fa fa-commenting"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                {{/each}}
+            </div>
+            <div class="button-sec">
+                <button class="btn load-more">load more</button>
+            </div>
+            <nav aria-label="Page navigation example" class="mt-5">
+                <ul class="pagination justify-content-center">
+                    {{#paginate current=current pages=pages}}
+
+                    {{/paginate}}
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Aside section start -->
+        <aside>
+
+
+
+            <!-- facebook like section -->
+            <div class="fb-sec">
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Femonmyplate%2F&tabs&width=330&height=214&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="100%" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            </div>
+
+            <!-- InstaWidget -->
+            <a href="https://instawidget.net/v/user/emonmyplate" id="link-f2817c83148136b9664b083d0c186732613e578614b3d2610cc8e3b0e864b122">@emonmyplate</a>
+            <script src="https://instawidget.net/js/instawidget.js?u=f2817c83148136b9664b083d0c186732613e578614b3d2610cc8e3b0e864b122&width=300px"></script>
+        </aside>
+
+    </div>
+</section>
+
+
+
