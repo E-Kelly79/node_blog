@@ -1,18 +1,44 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var exphbs = require('express-handlebars');
-var app = express();
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const exphbs = require('express-handlebars');
+const app = express();
+const mysql = require('mysql');
+
+var db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "classes"
+});
+
+db.connect(function(error){
+    if(!error){
+        console.log('Connected');
+    }else{
+        console.log('error ' + error);
+    }
+});
+
+//Load Routes
+const home = require('./routes/home/main');
+const admin = require('./routes/admin/admin');
+const posts = require('./routes/admin/posts');
 
 
+
+
+//Set view engine
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.engine('handlebars', exphbs({defaultLayout: 'home'}));
 app.set('view engine', 'handlebars');
 
-app.get('/', (req, res)=>{
-  res.render('home/index');
-});
+
+//Use routes
+app.use('/', home);
+app.use('/admin', admin);
+app.use('/admin/posts', posts);
+
 
 
 app.listen(8080, ()=>{
