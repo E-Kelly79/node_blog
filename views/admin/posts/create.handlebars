@@ -1,14 +1,14 @@
 <h1>Create Posts</h1>
 
-{{#each errors}}
+
     <div class="alert alert-danger">
-        <strong>{{message}}</strong>
+
     </div>
-{{/each }}
-<form action="/admin/posts/create" method="post" enctype="multipart/form-data">
+
+<form action="/admin/posts/create" method="post">
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="Eneter Title" >
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" >
 
     </div>
 
@@ -21,9 +21,8 @@
     <div class="form-group">
         <label for="title">Category</label>
         <select  class="form-control" id="" name="category">
-            {{#each categories}}
-                <option value="{{id}}">{{name}}</option>
-            {{/each}}
+
+                <option value="">Public</option>
         </select>
     </div>
 

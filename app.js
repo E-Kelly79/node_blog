@@ -4,8 +4,9 @@ const cookieParser = require('cookie-parser');
 const exphbs = require('express-handlebars');
 const app = express();
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
 
-var db = mysql.createConnection({
+const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
@@ -19,6 +20,9 @@ db.connect(function(error){
         console.log('error ' + error);
     }
 });
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 //Load Routes
 const home = require('./routes/home/main');
