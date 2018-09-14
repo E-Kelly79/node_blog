@@ -16,16 +16,16 @@
     </tr>
     </thead>
     <tbody>
-    {{#each posts}}
+    {{#each data}}
         <tr>
-            <td>{{title}}</td>
-            <td><img src="/uploads/{{file}}" height="100px" class="media img-responsive" alt=""></td>
-            <td>{{category.name}}</td>
-            <td>{{status}}</td>
+            <td>{{post_title}}</td>
+            <td><img src="/uploads/{{post_image}}" height="100px" class="media img-responsive" alt=""></td>
+            <td>{{post_author}}</td>
+            <td>{{post_content}}</td>
             <td>{{allowComments}}</td>
-            <td>{{formatDate date 'MMM/Do/YYYY'}}</td>
+            <td>{{post_date}}</td>
             <td><a href="/post/{{slug}}" class="btn btn-success"><i class="fa fa-eye"></i> View Post</a></td>
-            <td><a href="/admin/posts/edit/{{id}}" class="btn btn-info"><i class="fa fa-pencil"></i> Edit</a></td>
+            <td><a href="/admin/posts/edit/{{post_id}}" class="btn btn-info"><i class="fa fa-pencil"></i> Edit</a></td>
             <td><form action="/admin/posts/{{id}}?_method=DELETE" method="post">
                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
             </form>

@@ -6,20 +6,7 @@ const app = express();
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "classes"
-});
 
-db.connect(function(error){
-    if(!error){
-        console.log('Connected');
-    }else{
-        console.log('error ' + error);
-    }
-});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -46,7 +33,7 @@ app.use('/admin/posts', posts);
 
 
 app.listen(8080, ()=>{
-    console.log(`listening on port 4500`);
+    console.log(`listening on port 8080`);
 });
 
 module.exports = app;
