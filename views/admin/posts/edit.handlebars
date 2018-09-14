@@ -1,27 +1,35 @@
 <h1>Edit Posts</h1>
 
-<form action="/admin/posts/edit/" method="post">
+<form action="/admin/posts/edit/{{post.post_id}}?_method=PUT" method="post">
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" value="{{post_title}}">
-    </div>
-
-    <div class="form-group">
-        <label for="file">Upload File</label>
-        <input type="file" class="form-control"  id="file" name="file">
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="{{post.post_title}}" >
     </div>
 
     <div class="form-group">
         <label for="title">Category</label>
-        <select class="form-control" id="" name="category">
-
+        <select  class="form-control" id="" name="category">
+            {{#select post.post_category_id}}
+                <option value="">Public</option>
+            {{/select}}
         </select>
     </div>
 
     <div class="form-group">
-        <label for="title">Title</label>
-        <select  class="form-control" id="status" name="status">
+        <label for="file">Upload File</label>
+        <input type="file" class="form-control"  id="file" name="image_file">
+    </div>
 
+    <div class="form-group">
+        <label for="title">Date</label>
+        <input type="text" class="form-control" id="date" name="date" placeholder="Enter Date" >
+    </div>
+
+
+    <div class="form-group">
+        <label for="author">Author</label>
+        <select  class="form-control" id="status" name="author">
+            <option value="public">Emma Martin</option>
         </select>
     </div>
 
@@ -33,10 +41,15 @@
     </div>
 
     <div class="form-group">
-        <label for="body">Description</label>
-        <textarea cols="30" rows="10" class="form-control" id="body" name="body">{{post.body}}</textarea>
+        <label for="tags">Tags</label>
+        <input type="text" class="form-control" id="title" name="tags" placeholder="Enter Tags" >
     </div>
-
+    <div class="form-group">
+        <label for="body">Description</label>
+        <textarea cols="30" rows="10" class="form-control" id="body" name="content" placeholder="Enter Description">
+            {{post.post_content}}
+        </textarea>
+    </div>
     <button type="submit">Submit</button>
 
 </form>
